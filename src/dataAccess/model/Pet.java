@@ -8,6 +8,15 @@ public class Pet {
 	private String breed;
 	private String doctor;
 	private int online;
+	public Pet(String name, String breed, String age, String doctor, String owner) {
+		this.name=name;
+		this.breed=breed;
+		this.age=age;
+		this.doctor=doctor;
+		this.owner=owner;
+		online=0;
+	}
+	public Pet() {}
 	public String getName() {
 		return name;
 	}

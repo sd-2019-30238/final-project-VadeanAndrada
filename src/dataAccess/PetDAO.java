@@ -3,7 +3,9 @@ package dataAccess;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import dataAccess.connection.ConnectionDB;
 import dataAccess.model.Pet;
@@ -31,12 +33,42 @@ public class PetDAO {
 		return pet;
 	}
 	
+	public ArrayList<String>  getUsersPets(User u)throws SQLException{
+		Connection con= ConnectionDB.getConnection();
+		ArrayList<String> allPets =new ArrayList<String>();
+		try {
+			String query="Select name from pet where owner='"+u.getName()+"'";
+			Statement statement=con.createStatement();
+			ResultSet result=statement.executeQuery(query);
+			while(result.next()) {
+				String oneRow= result.getString(1);
+				allPets.add(oneRow);}
+		}catch (Exception e) {
+			System.out.println("Cannot contect!");
+		}
+		return allPets;
+	}
+	
 	public void setIsOnlinePet(Pet pet){
 		Connection con=ConnectionDB.getConnection();
 		PreparedStatement statement=null;
 		int result=0;
 		try {
-			String query="UPDATE pet SET online = 1 WHERE name = "+pet.getName();
+			String query="UPDATE pet SET online = 1 WHERE name ='"+pet.getName()+"'";
+			statement=con.prepareStatement(query);
+			statement.executeUpdate();
+			result=statement.executeUpdate();	
+		}catch (Exception e) {
+			System.out.println("can't find the user "+e);
+		}
+	}
+	
+	public void setAllPetsOffline(){
+		Connection con=ConnectionDB.getConnection();
+		PreparedStatement statement=null;
+		int result=0;
+		try {
+			String query="UPDATE pet SET online = 0";
 			statement=con.prepareStatement(query);
 			statement.executeUpdate();
 			result=statement.executeUpdate();	

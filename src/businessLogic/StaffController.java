@@ -1,5 +1,6 @@
 package businessLogic;
 
+import dataAccess.AppointmentDAO;
 import dataAccess.StaffDAO;
 import dataAccess.model.Staff;
 
@@ -15,6 +16,11 @@ public class StaffController {
 			return 0;
 		}		
 		return 1; 
+	}
+	
+	public void checkAppointment(String name, String data) {
+		AppointmentDAO appDAO= new AppointmentDAO();
+		appDAO.setAppointmentCheck(name, data);
 	}
 
 }

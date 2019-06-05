@@ -6,6 +6,12 @@ public class Description {
 	private String age;
 	private String breed;
 	private String temperament;
+	public Description(String sex, String age, String temperament) {
+		this.sex=sex;
+		this.age=age;
+		this.temperament=temperament;
+	}
+	public Description() {}
 	public int getId() {
 		return id;
 	}

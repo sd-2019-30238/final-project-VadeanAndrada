@@ -68,7 +68,7 @@ public class UserDAO {
 		PreparedStatement statement=null;
 		int result=0;
 		try {
-			String query="UPDATE user SET online = 1 WHERE name = "+user.getName();
+			String query="UPDATE user SET online = 1 WHERE name = '"+user.getName()+"'";
 			statement=con.prepareStatement(query);
 			statement.executeUpdate();
 			result=statement.executeUpdate();	

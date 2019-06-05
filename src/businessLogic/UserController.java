@@ -51,5 +51,12 @@ public class UserController {
 		UserDAO userDAO= new UserDAO();
 		userDAO.setIsOffline();
 	}
+	
+	public String getOnlineUser() {
+		UserDAO userDAO= new UserDAO();
+		User userOnline=userDAO.getIsOnlineUsername();
+
+		return userOnline.getName();
+	}
 
 }

@@ -6,6 +6,14 @@ public class Appointment {
 	private String type;
 	private String nameOwner;
 	private int check;
+	public Appointment(String data, String type, String petOwner, String petOnline) {
+		this.data=data;
+		this.type=type;
+		nameOwner=petOwner;
+		namePet=petOnline;
+		check=0;
+	}
+	public Appointment() {}
 	public String getData() {
 		return data;
 	}
