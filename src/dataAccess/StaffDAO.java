@@ -13,7 +13,7 @@ public class StaffDAO {
 		Statement statement=null;
 		ResultSet result=null;
 		try {
-			String query="Select count(nameStaff) AS total from staff where name='"+s.getName()+"' and password='"+s.getPassword()+"'";
+			String query="Select count(name) AS total from staff where name='"+s.getName()+"' and password='"+s.getPassword()+"'";
 			statement=con.createStatement();
 			result=statement.executeQuery(query);
 			result.next();

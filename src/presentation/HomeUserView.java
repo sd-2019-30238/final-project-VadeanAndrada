@@ -20,7 +20,7 @@ public class HomeUserView extends JFrame {
 		frame=new JFrame();
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setTitle("UserHome");
+		frame.setTitle("HomeUser");
 		
 		getContentPane().setPreferredSize(new Dimension(500,400));
 		getContentPane().setLayout(null);
@@ -68,6 +68,10 @@ public class HomeUserView extends JFrame {
 						} catch (SQLException e1) {
 							e1.printStackTrace();
 						}
+					HomePetView main=new HomePetView();
+					main.setVisible(true);
+					frame.setVisible(false);
+						
 			
 				}
 			});
@@ -83,6 +87,9 @@ public class HomeUserView extends JFrame {
 		JButton btnFatiProfilul = new JButton("Fa-ti profilul :)");
 		btnFatiProfilul.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				CreateProfileView view=new CreateProfileView();
+				view.setVisible(true);
+				frame.setVisible(false);
 			}
 		});
 		
@@ -103,6 +110,9 @@ public class HomeUserView extends JFrame {
 		JButton btnNewPet = new JButton("Adauga animal");
 		btnNewPet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				CreatePetProfileView view=new CreatePetProfileView();
+				view.setVisible(true);
+				frame.setVisible(false);
 			}
 		});
 		btnNewPet.setBounds(34, 221, 135, 23);

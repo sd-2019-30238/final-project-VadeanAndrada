@@ -42,4 +42,12 @@ public class AppointmentController {
 		app=appDAO.getDisinfestationAppointmets();
 		return app;
 	}
+	
+	public ArrayList<String[]> getAllApp() throws SQLException{
+		ArrayList<String[]> app=new ArrayList<String[]>();
+		AppointmentDAO appDAO=new AppointmentDAO();
+		app=appDAO.getAllAppointmets();
+		return app;
+	}
+	
 }
